@@ -1,13 +1,36 @@
 {
-    "tasks" : [
-        {
-            "id": "1",
-            "text": "learn Typescript"
-        },
-
-        {
-            "id": "2",
-            "text": "learn Nextjs"
-        }
-    ]
+  "tasks": [
+    {
+      "id": "1",
+      "text": "learn Typescript"
+    },
+    {
+      "id": "2",
+      "text": "learn Nextjs"
+    },
+    {
+      "id": "3",
+      "text": "ddd"
+    },
+    {
+      "id": "3",
+      "text": "Building a todo app"
+    },
+    {
+      "id": "uuidv4",
+      "text": "Test My Todo App"
+    },
+    {
+      "id": "uuidv4",
+      "text": "Retest My Todo App"
+    },
+    {
+      "id": "uuidv4()",
+      "text": "Push to GitHub"
+    },
+    {
+      "id": "uuidv4()",
+      "text": ""
+    }
+  ]
 }
