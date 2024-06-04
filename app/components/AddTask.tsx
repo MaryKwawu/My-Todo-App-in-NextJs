@@ -41,7 +41,7 @@ function AddTask() {
           onChange={e => setNewTaskvalue(e.target.value)}
           type="text" 
           placeholder="Type here" 
-          className="input input-bordered w-full w-full"
+          className="input input-bordered  w-full"
            />
            <button type="submit"className="btn">
             Submit
