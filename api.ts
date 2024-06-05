@@ -1,6 +1,6 @@
 import { ITask } from "./types/tasks"
 
-const baseUrl = 'http://localhost:3001'
+const baseUrl = process.env.NODE_ENV === "development" ?  'http://localhost:3001' : "https://my-todo-app-in-next-js.vercel.app"
 
 export const getAllTodos = async (): Promise<ITask[]> => {
     const res = await fetch(`${baseUrl}/tasks` , { cache: 'no-store'});

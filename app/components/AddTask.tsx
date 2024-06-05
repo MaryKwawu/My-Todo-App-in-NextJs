@@ -21,7 +21,7 @@ function AddTask() {
     })
     setNewTaskvalue("");
     setModalOpen(false);
-    router.refresh
+    router.refresh();
 
 
   };

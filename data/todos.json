@@ -2,11 +2,11 @@
   "tasks": [
     {
       "id": "1",
-      "text": "learn Typescript"
+      "text": "Learn Typescript"
     },
     {
       "id": "2",
-      "text": "learn Nextjs"
+      "text": "Learn Nextjs"
     },
     {
       "id": "3",
@@ -26,7 +26,7 @@
     },
     {
       "id": "uuidv4()",
-      "text": ""
+      "text": "Record My App Functionalities"
     }
   ]
 }
