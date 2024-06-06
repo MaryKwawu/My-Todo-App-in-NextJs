@@ -1,12 +1,14 @@
-import { ITask } from "@/types/tasks";
 import React from "react";
 import Task from "./Task";
+import { ITask } from "@/types/tasks";
+import { BASE_URL } from "@/constants";
 
-interface TodoListProps {
-  tasks: ITask[];
-}
+const TodoList = async () => {
+  const response = await fetch(`${BASE_URL}/todos`, {
+    cache: "no-cache",
+  });
+  const tasks: ITask[] = await response.json();
 
-const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
   return (
     <div className="overflow-x-auto">
       <table className="table">

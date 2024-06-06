@@ -3,10 +3,11 @@ import todos from "@/public/data/todos.json";
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 import { redirect } from "next/navigation";
-import { saveToDb } from "@/api";
+import { saveToDb } from "@/utils";
 
-export async function GET() {
-  return Response.json(todos.tasks);
+export async function GET(request: Request) {
+    console.log("url", request.url);
+  return NextResponse.json(todos.tasks);
 }
 
 export async function POST(request: Request) {
@@ -23,3 +24,4 @@ export async function POST(request: Request) {
 
   return redirect("/");
 }
+

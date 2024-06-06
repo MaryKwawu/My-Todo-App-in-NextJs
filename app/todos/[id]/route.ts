@@ -1,4 +1,4 @@
-import { saveToDb } from "@/api";
+import { saveToDb } from "@/utils";
 import todos from "@/public/data/todos.json";
 import { NextResponse } from "next/server";
 import { redirect } from "next/navigation";

@@ -1,6 +1,6 @@
 "use client";
 import { ITask } from "@/types/tasks";
-import { FormEventHandler, useState } from "react";
+import { FormEventHandler, useEffect, useState } from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import Modal from "./Modal";
 
@@ -9,11 +9,14 @@ interface TaskProps {
 }
 
 const Task: React.FC<TaskProps> = ({ task }) => {
-
   const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
   const [openModalDeleted, setOpenModalDeleted] = useState<boolean>(false);
 
-  const [taskToEdit, setTaskToEdit] = useState<string>(task.text);
+  const [taskToEdit, setTaskToEdit] = useState<string>();
+
+  useEffect(() => {
+    setTaskToEdit(task.text);
+  }, []);
 
   const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -25,7 +28,6 @@ const Task: React.FC<TaskProps> = ({ task }) => {
       cache: "no-cache",
     });
 
-    setTaskToEdit("");
     setOpenModalEdit(false);
   };
 
