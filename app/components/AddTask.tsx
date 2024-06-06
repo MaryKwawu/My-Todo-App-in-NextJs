@@ -1,33 +1,33 @@
-'use client';
+"use client";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
 import { FormEventHandler, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { addTodo } from "@/api";
-import { v4 as uuidv4 } from "uuid";
-
+import { useSearchParams } from "next/navigation";
 
 function AddTask() {
-  const router = useRouter();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTaskValue, setNewTaskvalue] = useState<string>("");
 
-  const handleSubmitnewTodo: FormEventHandler<HTMLFormElement> = async (e) =>  {
-    e.preventDefault()
-    await addTodo({
-      id: "uuidv4()",
-      text: newTaskValue
-    })
+  const handleSubmitnewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+    await fetch("/todos", {
+      method: "POST",
+      body: JSON.stringify({
+        text: newTaskValue,
+      }),
+      cache: "no-cache",
+    });
     setNewTaskvalue("");
     setModalOpen(false);
-    router.refresh();
-
-
   };
+
   return (
     <div>
-      <button onClick={() => setModalOpen(true)} className="btn btn-primary w-full">
+      <button
+        onClick={() => setModalOpen(true)}
+        className="btn btn-primary w-full"
+      >
         Add new task
         <AiOutlinePlus className="ml-2" size={18} />
       </button>
@@ -36,19 +36,18 @@ function AddTask() {
         <form onSubmit={handleSubmitnewTodo}>
           <h3 className="font-bold text-lg">Add new task</h3>
           <div className="modal-action">
-          <input 
-          value={newTaskValue}
-          onChange={e => setNewTaskvalue(e.target.value)}
-          type="text" 
-          placeholder="Type here" 
-          className="input input-bordered  w-full"
-           />
-           <button type="submit"className="btn">
-            Submit
-           </button>
+            <input
+              value={newTaskValue}
+              onChange={(e) => setNewTaskvalue(e.target.value)}
+              type="text"
+              placeholder="Type here"
+              className="input input-bordered  w-full"
+            />
+            <button type="submit" className="btn">
+              Submit
+            </button>
           </div>
         </form>
-        
       </Modal>
     </div>
   );
